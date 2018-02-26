@@ -17,7 +17,7 @@ transfer(address _to, uint256 _value)
   
   uint public constant MarketDate = 1519615600; #timestamp
   
-  #in function  transfer(address _to, uint256 _value)   
+  in function  transfer(address _to, uint256 _value)   
   
   add  require( now > MarketDate || msg.sender == owner );  
   
