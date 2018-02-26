@@ -16,7 +16,7 @@ transfer(address _to, uint256 _value)
 # add openMarket date  
 #  uint public constant MarketDate = 1519615600; #timestamp
   # transfer(address _to, uint256 _value)   
-  # require( now > 1519616140 || msg.sender == owner );  
+  # require( now > MarketDate || msg.sender == owner );  
 #  }
  
  
