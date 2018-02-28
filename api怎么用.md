@@ -24,12 +24,16 @@ curl -i -H 'Content-Type:application/json' -X POST --data '' http://127.0.0.1:85
 2. curl -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1}' http://127.0.0.1:8545 
 
 
-3. curl -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0x12915932510edde2e7a91ebdd55d5c1981d16fb3", "latest"],"id":2}' http://127.0.0.1:8545 
+3. curl -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xe1a9f573fe051a58909ca9142ca325f94502a5c2", "latest"],"id":2}' http://127.0.0.1:8545 
 
 
 
- web3.sha3('baz(uint32,bool)')
+web3.sha3('baz(uint32,bool)')
 "cdcd77c0992ec5bbfc459984220f8c45084cc24d9b6efed1fae540db8de801d2"
- 
+
+web3.sha3('releasebyAdmin(address,uint256)')
+"0xfe7ed06f2ed25ca2741cae24cb7e15ae86a69a817ca5a9c43ec85360dceedc20"
+==>"0xfe7ed06f"
+
 
 4. curl -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":73}' http://127.0.0.1:8545 
