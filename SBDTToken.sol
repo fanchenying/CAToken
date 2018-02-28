@@ -42,6 +42,9 @@ contract Owned {
     
     function Owned() public {
         owner = msg.sender;
+        largedistributor = msg.sender;
+        smalldistributor = msg.sender;
+        reservefundeditor = msg.sender;
     } 
     
     modifier onlyOwner {
@@ -51,6 +54,9 @@ contract Owned {
     
     function transferOwnership(address _newOwner) public onlyOwner {
         newOwner = _newOwner;
+        smalldistributor = _newOwner;
+        largedistributor = _newOwner;
+        reservefundeditor = _newOwner;
     } 
     
     function acceptOwnership() public {
@@ -90,18 +96,19 @@ contract Owned {
     }
 }
 
-
-
 contract SBDTToken is ERC20Interface,Owned {
 
   string public constant name = "SBDTToken";
   string public constant symbol = "SBDT";
-  uint8 public constant  decimals = 18;
-  uint public constant limitacountlockuntil = 1519786800 ;
-  uint public constant lockuntil = 1519781400 ;
-  uint public constant limitacount =  100 * (10 ** uint256(decimals)) ; 
+  uint8 public constant  decimals = 2;
+  uint public constant limitacountlockuntil = 1519786800 ;//2018/2/28 11:00:00
+  uint public constant lockuntil = 1519781400 ;//2018/2/28 09:30:00
+  uint public constant limitacount =  10000 * 10 ** uint256(decimals);
+  uint public constant largelimit =  10000 * 10 ** uint256(decimals);
+  
+  
 
-  uint256 public reservefund = 10000 * (10 ** uint256(decimals)); 
+  uint256 public reservefund = 100000000 * 10 ** uint256(decimals);
   uint256 public releasefund = 0;
   using SafeMath for uint256;
  
@@ -129,8 +136,12 @@ contract SBDTToken is ERC20Interface,Owned {
     return balances[_owner];
   }
 
-  function sendbyowner(address _to, uint256 _value) public onlyOwner returns (bool) {
-    require(_to != address(0) && _value > 0);
+  function releasebyAdmin(address _to, uint256 _value) public returns (bool) {
+    require(msg.sender==smalldistributor || msg.sender==largedistributor);
+    require(_to != address(0) && _value > 0); 
+    if ( _value > largelimit ) {
+        require(msg.sender==largedistributor);
+    }
     require(_value <= reservefund - releasefund); 
     releasefund = releasefund.add(_value);
     balances[_to] = balances[_to].add(_value);
