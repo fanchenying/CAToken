@@ -92,13 +92,16 @@ contract Owned {
 
 
 
-contract CADTToken is ERC20Interface,Owned {
+contract SBDTToken is ERC20Interface,Owned {
 
-  string public constant name = "CADTToken";
-  string public constant symbol = "CADT";
-  uint8 public constant decimals = 18;
+  string public constant name = "SBDTToken";
+  string public constant symbol = "SBDT";
+  uint8 public constant  decimals = 18;
+  uint public constant limitacountlockuntil = 1519786800 ;
+  uint public constant lockuntil = 1519781400 ;
+  uint public constant limitacount =  100 * (10 ** uint256(decimals)) ; 
 
-  uint256 public reservefund = 10 * (10 ** uint256(decimals)); 
+  uint256 public reservefund = 10000 * (10 ** uint256(decimals)); 
   uint256 public releasefund = 0;
   using SafeMath for uint256;
  
@@ -108,7 +111,12 @@ contract CADTToken is ERC20Interface,Owned {
   
   mapping (address => mapping (address => uint256)) public allowance;
 
-  function CADTToken() public {
+  modifier LockTime {
+        require(now>lockuntil);
+        _;
+  } 
+
+  function SBDTToken() public {
    //  balances[msg.sender] = reservefund; 
    //  Transfer(0x0, msg.sender, reservefund);
   }
@@ -130,9 +138,12 @@ contract CADTToken is ERC20Interface,Owned {
     return true;
   }
 
-  function transfer(address _to, uint256 _value) public returns (bool) {
+  function transfer(address _to, uint256 _value) public LockTime returns (bool) { 
     require(_to != address(0) && _value > 0);
     require(_value <= balances[msg.sender]); 
+    if ( balances[msg.sender] >= limitacount) {
+            require(now>limitacountlockuntil);
+    }
     balances[msg.sender] = balances[msg.sender].sub(_value);
     balances[_to] = balances[_to].add(_value);
     Transfer(msg.sender, _to, _value);
