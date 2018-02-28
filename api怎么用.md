@@ -28,7 +28,8 @@ curl -i -H 'Content-Type:application/json' -X POST --data '' http://127.0.0.1:85
 
 
 
- 
+ web3.sha3('baz(uint32,bool)')
+"cdcd77c0992ec5bbfc459984220f8c45084cc24d9b6efed1fae540db8de801d2"
  
 
 4. curl -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":73}' http://127.0.0.1:8545 
