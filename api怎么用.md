@@ -13,7 +13,7 @@ https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI
 
 
 1. 服务上下载geth，安装和运行：
- geth --fast --networkid 4 --rpc --rpccorsdomain "http://localhost:3000" --datadir "/Users/fancy/Library/Ethereum.bak/rinkeby" 
+ geth --fast --networkid 4 --rpc --rpccorsdomain "http://localhost:3000" console
 
 
 
