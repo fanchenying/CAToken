@@ -35,5 +35,9 @@ web3.sha3('releasebyAdmin(address,uint256)')
 "0xfe7ed06f2ed25ca2741cae24cb7e15ae86a69a817ca5a9c43ec85360dceedc20"
 ==>"0xfe7ed06f"
 
+0xfe7ed06f
+00000000000000000000000012915932510edde2e7a91ebdd55d5c1981d16fb3
+00000000000000000000000000000000000000000000000000000000000f4240
+
 
 4. curl -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":73}' http://127.0.0.1:8545 
