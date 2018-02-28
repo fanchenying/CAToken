@@ -13,9 +13,11 @@ https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI
 
 
 1. 服务上下载geth，安装和运行：
- geth --fast --networkid 4 --rpc --rpccorsdomain "http://localhost:3000" console
+ XXXgeth --fast --networkid 4 --rpc --rpccorsdomain "http://localhost:3000" console
 
-
+ XXXgeth --networkid 4 --rpc --rpccorsdomain "http://localhost:3000" --verbosity 1 console 2
+ 
+ geth --rinkeby --rpc --rpccorsdomain "http://localhost:3000" --verbosity 1  console 
 
 命令：模版 
 curl -i -H 'Content-Type:application/json' -X POST --data '' http://127.0.0.1:8545 
@@ -24,7 +26,7 @@ curl -i -H 'Content-Type:application/json' -X POST --data '' http://127.0.0.1:85
 2. curl -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":1}' http://127.0.0.1:8545 
 
 
-3. curl -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xe1a9f573fe051a58909ca9142ca325f94502a5c2", "latest"],"id":2}' http://127.0.0.1:8545 
+3. curl -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0x12915932510edde2e7a91ebdd55d5c1981d16fb3", "latest"],"id":2}' http://127.0.0.1:8545 
 
 
 
