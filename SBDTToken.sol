@@ -33,7 +33,7 @@ contract ERC20Interface {
 //contract ApproveAndCallFallBack { 
 //  function receiveApproval(address from, uint256 tokens, address token, bytes data) public;
 //}
-
+ 
 contract Owned { 
     address public owner;
     address public newOwner; 
