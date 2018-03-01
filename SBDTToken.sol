@@ -116,15 +116,15 @@ contract SBDTToken is ERC20Interface,Owned {
   
   mapping (address => mapping (address => uint256)) public allowance;
 
-  modifier LockTime {
+  modifier lockTime {
         require(now>lockuntil);
         _;
   } 
 
-  function SBDTToken() public {
-   //  balances[msg.sender] = reservefund; 
-   //  Transfer(0x0, msg.sender, reservefund);
-  }
+//   function SBDTToken() public {
+//    //  balances[msg.sender] = reservefund; 
+//    //  Transfer(0x0, msg.sender, reservefund);
+//   }
 
   function totalSupply() public view returns (uint256) {
      return reservefund;
@@ -147,7 +147,7 @@ contract SBDTToken is ERC20Interface,Owned {
     return true;
   }
 
-  function transfer(address _to, uint256 _value) public LockTime returns (bool) { 
+  function transfer(address _to, uint256 _value) public lockTime returns (bool) { 
     require(_to != address(0) && _value > 0);
     require(_value <= balances[msg.sender]); 
     if ( balances[msg.sender] >= limitacount) {
@@ -169,7 +169,7 @@ contract SBDTToken is ERC20Interface,Owned {
 
   function setreservefund(uint256 _value) public returns (bool) {
     require(msg.sender==reservefundeditor && _value >= releasefund); 
-    reservefund = _value;
+    reservefund = _value * 10 ** uint256(decimals);
     return true;
   }
 

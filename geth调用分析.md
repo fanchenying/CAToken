@@ -17,6 +17,8 @@
     ****查看token总发行量    0x70a08231      totalSupply()       
     ****查看token总发行量    0x8da5cb5b      owner() 
     ****转账接口            0xa9059cbb      transfer(address,amount)
+    ****发币接口            0xfe7ed06f      releasebyAdmin(address,uint256)
+    ****设置发币总数         0x224ab9ed      setreservefund(uint256)
 
     例子2: curl http://127.0.0.1:8545 -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"eth_call","params":[{"to":"0x67124c31ceb03cb1ff19ee7a7d2f2a234b684a58","data":"0x18160ddd"}, "latest"],"id":1}' 
 
@@ -30,6 +32,13 @@
 
     例子3: curl http://127.0.0.1:8545 -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{"from":"0xe1a9f573fe051a58909ca9142ca325f94502a5c2","to":"0x67124c31ceb03cb1ff19ee7a7d2f2a234b684a58","data":"0xa9059cbb000000000000000000000000A64f345f9A97eA53e652A4646B080613648174640000000000000000000000000000000000000000000000000000000000000001"}],"id":12}' 
    
+    例子4: curl http://127.0.0.1:8545 -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{"from":"0xe1a9f573fe051a58909ca9142ca325f94502a5c2","to":"0x67124c31ceb03cb1ff19ee7a7d2f2a234b684a58","data":"0xfe7ed06f000000000000000000000000a64f345f9a97ea53e652a4646b0806136481746400000000000000000000000000000000000000000000000000000000075bcd15"}],"id":12}' 
+
+     例子5: curl http://127.0.0.1:8545 -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{"from":"0xe1a9f573fe051a58909ca9142ca325f94502a5c2","to":"0x67124c31ceb03cb1ff19ee7a7d2f2a234b684a58","data":"0x224ab9ed00000000000000000000000000000000000000000000000000000004a817c800"}],"id":12}' 
+
+   
+
+
      
 主要的函数：
 
