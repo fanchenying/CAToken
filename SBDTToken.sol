@@ -106,8 +106,6 @@ contract SBDTToken is ERC20Interface,Owned {
   uint public constant limitacount =  10000 * 10 ** uint256(decimals);
   uint public constant largelimit =  10000 * 10 ** uint256(decimals);
   
-  
-
   uint256 public reservefund = 100000000 * 10 ** uint256(decimals);
   uint256 public releasefund = 0;
   using SafeMath for uint256;
@@ -167,6 +165,12 @@ contract SBDTToken is ERC20Interface,Owned {
         releasefund = releasefund.sub(_value);
         Burn(msg.sender, _value);
         return true;
+  }
+
+  function setreservefund(uint256 _value) public returns (bool) {
+    require(msg.sender==reservefundeditor && _value >= releasefund); 
+    reservefund = _value;
+    return true;
   }
 
 }
