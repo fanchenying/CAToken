@@ -43,3 +43,6 @@ web3.sha3('releasebyAdmin(address,uint256)')
 
 
 4. curl -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":73}' http://127.0.0.1:8545 
+
+
+
