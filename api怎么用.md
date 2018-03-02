@@ -21,12 +21,13 @@ https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI
 
 
  macos #### 测试库   geth --rinkeby --rpc --rpcapi "eth,personal" --verbosity 1  console
- macos #### 真实库   geth  --rpc --rpcapi "eth,personal" --verbosity 1  console
+ macos #### 真实库   geth --light --rpc --rpcapi "eth,personal" --verbosity 1 console
+  
  win   ###  真实库   geth --datadir "D:\Ethereum" --rpc  console
 
 
 win版本：
-geth --datadir "D:\Ethereum" --rpc   console 
+geth --light  --rpc  --rpc --rpccorsdomain "http://localhost:3000" console
 
 
 命令：模版 
