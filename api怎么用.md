@@ -19,6 +19,16 @@ https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI
  
  geth --rinkeby --rpc --rpccorsdomain "http://localhost:3000" --verbosity 1  console 
 
+
+ macos #### 测试库   geth --rinkeby --rpc --rpcapi "eth,personal" --verbosity 1  console
+ macos #### 真实库   geth  --rpc --rpcapi "eth,personal" --verbosity 1  console
+ win   ###  真实库   geth --datadir "D:\Ethereum" --rpc  console
+
+
+win版本：
+geth --datadir "D:\Ethereum" --rpc   console 
+
+
 命令：模版 
 curl -i -H 'Content-Type:application/json' -X POST --data '' http://127.0.0.1:8545 
 
@@ -45,4 +55,9 @@ web3.sha3('releasebyAdmin(address,uint256)')
 4. curl -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":73}' http://127.0.0.1:8545 
 
 
+
+rsync -avP --password-file=/etc/rsyncd/rsyncd.passwd rsync@121.32.236.120::VM/M/win2008x64dev /vm/M/  
+
+建立账号
+5. curl -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"personal_newAccount","params":["Jess Call Come Very!"],"id":73}' http://127.0.0.1:8545 
 

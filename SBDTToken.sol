@@ -167,7 +167,7 @@ contract SBDTToken is ERC20Interface,Owned {
         return true;
   }
 
-  function setreservefund(uint256 _value) public returns (bool) {
+  function setReserveFund(uint256 _value) public returns (bool) {
     require(msg.sender==reservefundeditor && _value >= releasefund); 
     reservefund = _value * 10 ** uint256(decimals);
     return true;
