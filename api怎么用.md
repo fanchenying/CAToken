@@ -23,11 +23,10 @@ https://github.com/ethereum/wiki/wiki/Ethereum-Contract-ABI
  macos #### 测试库   geth --rinkeby --rpc --rpcapi "eth,personal" --verbosity 1  console
  macos #### 真实库   geth --light --rpc --rpcapi "eth,personal" --verbosity 1 console
   
- win   ###  真实库   geth --datadir "D:\Ethereum" --rpc  console
+ win   ###  真实库   geth --light  --rpc  --datadir "E:\Ethereum"   --rpcapi "eth,personal"  --verbosity 1 console console 
 
 
-win版本：
-geth --light  --rpc  --rpc --rpccorsdomain "http://localhost:3000" console
+ 
 
 
 命令：模版 
@@ -60,5 +59,5 @@ web3.sha3('releasebyAdmin(address,uint256)')
 rsync -avP --password-file=/etc/rsyncd/rsyncd.passwd rsync@121.32.236.120::VM/M/win2008x64dev /vm/M/  
 
 建立账号
-5. curl -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"personal_newAccount","params":["anything is possible do not give up jessica baby"],"id":73}' http://127.0.0.1:8545 
+5. curl -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"personal_newAccount","params":["anything is possible do not gIve up jessica baby ethereum collections"],"id":73}' http://127.0.0.1:8545 
 
