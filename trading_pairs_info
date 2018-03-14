@@ -1,0 +1,294 @@
+[
+{"base_decimals": 8, "minimum_order": "5.0 USD", "name": "LTC/USD", "counter_decimals": 2, "trading": "Enabled", "url_symbol": "ltcusd", "description": "Litecoin / U.S. dollar"}, 
+{"base_decimals": 8, "minimum_order": "5.0 USD", "name": "ETH/USD", "counter_decimals": 2, "trading": "Enabled", "url_symbol": "ethusd", "description": "Ether / U.S. dollar"}, 
+{"base_decimals": 8, "minimum_order": "5.0 EUR", "name": "XRP/EUR", "counter_decimals": 5, "trading": "Enabled", "url_symbol": "xrpeur", "description": "XRP / Euro"}, 
+{"base_decimals": 8, "minimum_order": "5.0 USD", "name": "BCH/USD", "counter_decimals": 2, "trading": "Enabled", "url_symbol": "bchusd", "description": "Bitcoin Cash / U.S. dollar"}, 
+{"base_decimals": 8, "minimum_order": "5.0 EUR", "name": "BCH/EUR", "counter_decimals": 2, "trading": "Enabled", "url_symbol": "bcheur", "description": "Bitcoin Cash / Euro"}, 
+{"base_decimals": 8, "minimum_order": "5.0 EUR", "name": "BTC/EUR", "counter_decimals": 2, "trading": "Enabled", "url_symbol": "btceur", "description": "Bitcoin / Euro"}, 
+{"base_decimals": 8, "minimum_order": "0.001 BTC", "name": "XRP/BTC", "counter_decimals": 8, "trading": "Enabled", "url_symbol": "xrpbtc", "description": "XRP / Bitcoin"}, 
+{"base_decimals": 5, "minimum_order": "5.0 USD", "name": "EUR/USD", "counter_decimals": 5, "trading": "Enabled", "url_symbol": "eurusd", "description": "Euro / U.S. dollar"}, 
+{"base_decimals": 8, "minimum_order": "0.001 BTC", "name": "BCH/BTC", "counter_decimals": 8, "trading": "Enabled", "url_symbol": "bchbtc", "description": "Bitcoin Cash / Bitcoin"}, 
+{"base_decimals": 8, "minimum_order": "5.0 EUR", "name": "LTC/EUR", "counter_decimals": 2, "trading": "Enabled", "url_symbol": "ltceur", "description": "Litecoin / Euro"}, 
+{"base_decimals": 8, "minimum_order": "5.0 USD", "name": "BTC/USD", "counter_decimals": 2, "trading": "Enabled", "url_symbol": "btcusd", "description": "Bitcoin / U.S. dollar"}, 
+{"base_decimals": 8, "minimum_order": "0.001 BTC", "name": "LTC/BTC", "counter_decimals": 8, "trading": "Enabled", "url_symbol": "ltcbtc", "description": "Litecoin / Bitcoin"}, 
+{"base_decimals": 8, "minimum_order": "5.0 USD", "name": "XRP/USD", "counter_decimals": 5, "trading": "Enabled", "url_symbol": "xrpusd", "description": "XRP / U.S. dollar"}, 
+{"base_decimals": 8, "minimum_order": "0.001 BTC", "name": "ETH/BTC", "counter_decimals": 8, "trading": "Enabled", "url_symbol": "ethbtc", "description": "Ether / Bitcoin"}, 
+{"base_decimals": 8, "minimum_order": "5.0 EUR", "name": "ETH/EUR", "counter_decimals": 2, "trading": "Enabled", "url_symbol": "etheur", "description": "Ether / Euro"}
+]
+
+
+
+
+
+    Bitcoin Core 版本 v0.15.1 (64 位)
+使用：
+  bitcoin-qt [命令行选项]                     
+
+选项：
+
+
+-?
+打印出这段帮助信息并退出 
+-version
+打印版本信息并退出 
+-alertnotify=<cmd>
+当收到相关提醒或者我们看到一个长分叉时执行命令（%s 将替换为消息） 
+-blocknotify=<cmd>
+当最佳数据块变化时执行命令 (命令行中的 %s 会被替换成数据块哈希值) 
+-assumevalid=<hex>
+If this block is in the chain assume that it and its ancestors are valid and potentially skip their script verification (0 to verify all, default: 0000000000000000003b9ce759c2a087d52abc4266f8f4ebd6d768b89defa50a, testnet: 0000000002e9e7b00e1f6dc5123a04aad68dd0f0968d8c7aa45f6640795c37b1) 
+-conf=<file>
+指定配置文件 (默认: bitcoin.conf) 
+-datadir=<dir>
+指定数据目录 
+-dbcache=<n>
+设置以MB为单位的数据库缓存大小(4 到 16384, 默认值: 450) 
+-loadblock=<file>
+启动时从其他来源的  blk000??.dat 文件导入区块 
+-maxorphantx=<n>
+内存中最多保留 <n> 笔孤立的交易 (默认: 100) 
+-maxmempool=<n>
+保持交易内存池大小低于<n>MB（默认：300） 
+-mempoolexpiry=<n>
+不要让交易留在内存池中超过 <n> 个小时 (默认值: 336) 
+-persistmempool
+Whether to save the mempool on shutdown and load on restart (default: 1) 
+-blockreconstructionextratxn=<n>
+Extra transactions to keep in memory for compact block reconstructions (default: 100) 
+-par=<n>
+设置脚本验证的程序 (-4 到 16, 0 = 自动, <0 = 保留自由的核心, 默认值: 0) 
+-pid=<file>
+指定 pid 文件 (默认: bitcoind.pid) 
+-prune=<n>
+Reduce storage requirements by enabling pruning (deleting) of old blocks. This allows the pruneblockchain RPC to be called to delete specific blocks, and enables automatic pruning of old blocks if a target size in MiB is provided. This mode is incompatible with -txindex and -rescan. Warning: Reverting this setting requires re-downloading the entire blockchain. (default: 0 = disable pruning blocks, 1 = allow manual pruning via RPC, >550 = automatically prune block files to stay under the specified target size in MiB) 
+-reindex-chainstate
+从当前索引的区块中重建链状态 
+-reindex
+Rebuild chain state and block index from the blk*.dat files on disk 
+-sysperms
+创建系统默认权限的文件，而不是 umask 077 (只在关闭钱包功能时有效) 
+-txindex
+维护一份完整的交易索引, 用于 getrawtransaction RPC调用 (默认: 0) 
+
+
+连接选项：
+
+
+-addnode=<ip>
+添加节点并与其保持连接 
+-banscore=<n>
+断开 非礼节点的阀值 (默认: 100) 
+-bantime=<n>
+限制 非礼节点 若干秒内不能连接 (默认: 86400) 
+-bind=<addr>
+绑定指定的IP地址开始监听。IPv6地址请使用[host]:port 格式 
+-connect=<ip>
+Connect only to the specified node(s); -connect=0 disables automatic connections 
+-discover
+发现自己的 IP 地址（默认: 监听并且无 -externalip 或 -proxy 时为 1） 
+-dns
+使用 -addnode, -seednode 和 -connect 选项时允许查询DNS (默认: 1) 
+-dnsseed
+Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect used) 
+-externalip=<ip>
+指定您的公共地址 
+-forcednsseed
+始终通过 DNS 查询节点地址 (默认: 0) 
+-listen
+Accept connections from outside (default: 1 if no -proxy or -connect) 
+-listenonion
+自动建立Tor隐藏服务 (默认:1) 
+-maxconnections=<n>
+保留最多 <n> 条节点连接 (默认: 125) 
+-maxreceivebuffer=<n>
+每个连接的最大接收缓存，<n>*1000 字节 (默认: 5000) 
+-maxsendbuffer=<n>
+每个连接的最大发送缓存，<n>*1000 字节 (默认: 1000) 
+-maxtimeadjustment
+Maximum allowed median peer time offset adjustment. Local perspective of time may be influenced by peers forward or backward by this amount. (default: 4200 seconds) 
+-onion=<ip:port>
+通过Tor隐藏服务连接节点时 使用不同的SOCKS5代理 (默认: -proxy) 
+-onlynet=<net>
+只连接 <net>网络中的节点 (ipv4, ipv6 或 onion) 
+-permitbaremultisig
+是否转发 非P2SH格式的多签名交易 (默认: 1) 
+-peerbloomfilters
+支持用 Bloom 过滤器来过滤区块和交易(默认值: 1) 
+-port=<port>
+使用端口 <port> 监听连接 (默认: 8333 ; testnet: 18333) 
+-proxy=<ip:port>
+通过 SOCKS5 代理连接 
+-proxyrandomize
+为每个代理连接随机化凭据。这将启用 Tor 流隔离 (默认: 1) 
+-seednode=<ip>
+连接一个节点并获取对端地址，然后断开连接 
+-timeout=<n>
+指定连接超时毫秒数 (最小: 1, 默认: 5000) 
+-torcontrol=<ip>:<port>
+开启监听 onion 连接时的 Tor 控制端口号 (默认值: 127.0.0.1:9051) 
+-torpassword=<pass>
+Tor 控制端口密码 (默认值: 空白) 
+-upnp
+使用UPnp映射监听端口 (默认: 0) 
+-whitebind=<addr>
+绑定到指定地址和连接的白名单节点。 IPv6使用 [主机]:端口 格式 
+-whitelist=<IP address or network>
+Whitelist peers connecting from the given IP address (e.g. 1.2.3.4) or CIDR notated network (e.g. 1.2.3.0/24). Can be specified multiple times. 白名单节点不能被DoS banned ，且转发所有来自他们的交易(即便这些交易已经存在于mempool中)，常用于网关  
+-maxuploadtarget=<n>
+尝试保持上传带宽低于（MiB/24h），0=无限制（默认：0） 
+
+
+钱包选项:
+
+
+-disablewallet
+不要加载钱包和禁用钱包的 RPC 调用 
+-keypool=<n>
+设置私钥池大小为 <n> (默认：1000) 
+-fallbackfee=<amt>
+当费用估计数据(default: BTC)不足时将会启用的费率 (in 0.0002/kB) 
+-discardfee=<amt>
+The fee rate (in BTC/kB) that indicates your tolerance for discarding change by adding it to the fee (default: 0.0001). Note: An output is discarded if it is dust at this rate, but we will always discard up to the dust relay fee and a discard fee above that is limited by the fee estimate for the longest target 
+-mintxfee=<amt>
+当产生交易时，如果每千字节 (kB) 的手续费比这个值 (单位是 BTC) 低，就视为没支付手续费 (默认值: 0.00001) 
+-paytxfee=<amt>
+为付款交易添加交易费 (BTC/kB) (默认: 0.00) 
+-rescan
+重新扫描区块链以查找遗漏的钱包交易 
+-salvagewallet
+启动时尝试从已损坏的钱包文件中恢复私钥 
+-spendzeroconfchange
+付款时允许使用未确认的零钱 (默认: 1) 
+-txconfirmtarget=<n>
+如果未设置交易费用，自动添加足够的交易费以确保交易在平均n个数据块内被确认 (默认: 6) 
+-usehd
+Use hierarchical deterministic key generation (HD) after BIP32. Only has effect during wallet creation/first start (默认: 1) 
+-walletrbf
+Send transactions with full-RBF opt-in enabled (default: 0) 
+-upgradewallet
+程序启动时升级钱包到最新格式 
+-wallet=<file>
+指定钱包文件（数据目录内） (默认: wallet.dat) 
+-walletbroadcast
+钱包广播事务处理 (默认: 1) 
+-walletnotify=<cmd>
+当最佳区块变化时执行命令 (命令行中的 %s 会被替换成区块哈希值) 
+-zapwallettxes=<mode>
+删除钱包的所有交易记录，且只有用 -rescan参数启动客户端才能重新取回交易记录  (1 = 保留 tx meta data , 如 account owner 和 payment request information, 2 = 不保留 tx meta data) 
+
+
+ZeroMQ 通知选项：
+
+
+-zmqpubhashblock=<address>
+允许在<address>广播哈希区块 
+-zmqpubhashtx=<address>
+允许在<address>广播哈希交易 
+-zmqpubrawblock=<address>
+允许在<address>广播原始区块 
+-zmqpubrawtx=<address>
+允许在<address>广播原始交易 
+
+
+调试/测试选项：
+
+
+-uacomment=<cmt>
+为用户代理字符串附加说明 
+-debug=<category>
+输出调试信息 (默认: 0, 提供 <category> 是可选项). 如果<category>未提供或<category> = 1，输出所有调试信息。 <category> 可能是： net, tor, mempool, http, bench, zmq, db, rpc, estimatefee, addrman, selectcoins, reindex, cmpctblock, rand, prune, proxy, mempoolrej, libevent, coindb, qt, leveldb. 
+-debugexclude=<category>
+Exclude debugging information for a category. Can be used in conjunction with -debug=1 to output debug logs for all categories except one or more specified categories. 
+-help-debug
+显示所有调试选项 (用法: --帮助 -帮助调试) 
+-logips
+在调试输出中包含IP地址 (默认: 0) 
+-logtimestamps
+输出调试信息时，前面加上时间戳 (默认: 1) 
+-maxtxfee=<amt>
+最大的单次钱包或原始转账费用（BTC），设置太低可能导致大尺寸交易失败（默认：0.10） 
+-printtoconsole
+跟踪/调试信息输出到控制台，不输出到 debug.log 文件 
+-shrinkdebugfile
+客户端启动时压缩debug.log文件(缺省：no-debug模式时为1) 
+
+
+区块链选择选项:
+
+
+-testnet
+使用测试链 
+
+
+节点中继选项:
+
+
+-bytespersigop
+Equivalent bytes per sigop in transactions for relay and mining (default: 20) 
+-datacarrier
+Relay and mine data carrier transactions (default: 1) 
+-datacarriersize
+Maximum size of data in data carrier transactions we relay and mine (default: 83) 
+-mempoolreplacement
+保证内存池中的交易更换(默认：1) 
+-minrelaytxfee=<amt>
+交易费(in BTC/kB)比这更小的在关联、挖掘和生成交易时将被视为零费交易 (默认: 0.00001) 
+-whitelistrelay
+即使在无关联交易(默认: 1)时也接受来自白名单同行的关联交易 
+-whitelistforcerelay
+Force relay of transactions from whitelisted peers even if they violate local relay policy (default: 1) 
+
+
+数据块创建选项：
+
+
+-blockmaxweight=<n>
+设置BIP141最大区块权重 (默认: 3996000) 
+-blockmaxsize=<n>
+Set maximum BIP141 block weight to this * 4. Deprecated, use blockmaxweight 
+-blockmintxfee=<amt>
+Set lowest fee rate (in BTC/kB) for transactions to be included in block creation. (default: 0.00001) 
+
+
+RPC 服务器选项：
+
+
+-server
+接受命令行和 JSON-RPC 命令 
+-rest
+接受公共 REST 请求 (默认: 0) 
+-rpcbind=<addr>[:port]
+Bind to given address to listen for JSON-RPC connections. This option is ignored unless -rpcallowip is also passed. Port is optional and overrides -rpcport. Use [host]:port notation for IPv6. This option can be specified multiple times (default: 127.0.0.1 and ::1 i.e., localhost, or if -rpcallowip has been specified, 0.0.0.0 and :: i.e., all addresses) 
+-rpccookiefile=<loc>
+认证Cookie的位置 (默认: data目录) 
+-rpcuser=<user>
+JSON-RPC 连接用户名 
+-rpcpassword=<pw>
+JSON-RPC 连接密码 
+-rpcauth=<userpw>
+Username and hashed password for JSON-RPC connections. The field <userpw> comes in the format: <USERNAME>:<SALT>$<HASH>. A canonical python script is included in share/rpcuser. The client then connects normally using the rpcuser=<USERNAME>/rpcpassword=<PASSWORD> pair of arguments. This option can be specified multiple times 
+-rpcport=<port>
+使用 <port>端口监听 JSON-RPC 连接 (默认: 8332 ; testnet: 18332) 
+-rpcallowip=<ip>
+允许来自指定地址的 JSON-RPC 连接。 <ip>为单一IP (如: 1.2.3.4), 网络/掩码 (如: 1.2.3.4/255.255.255.0), 网络/CIDR (如:  1.2.3.4/24)。该选项可多次指定。 
+-rpcserialversion
+Sets the serialization of raw transaction or block hex returned in non-verbose mode, non-segwit(0) or segwit(1) (default: 1) 
+-rpcthreads=<n>
+设置RPC服务线程数 (默认: 4) 
+
+
+界面选项：
+
+
+-choosedatadir
+在启动时选择目录（默认0） 
+-lang=<lang>
+设置语言, 例如“zh-CN”（默认：系统语言） 
+-min
+启动时最小化 
+-rootcertificates=<file>
+设置付款请求的SSL根证书（默认：-系统-） 
+-splash
+显示启动画面（默认：1） 
+-resetguisettings
+重置图形界面所有的变更设置 

@@ -1,5 +1,5 @@
 
-1. 开启服务  geth --rinkeby --rpc --rpccorsdomain "http://localhost:3000" --verbosity 1  console 
+1. 开启服务  geth --rpc console 
 
 2. 解锁账户  personal.unlockAccount(eth.accounts[0])    这里需要一个比较小的账号登陆这里。用来查询用，不用来转账等操作。
 
@@ -38,8 +38,7 @@
 
      例子5: curl http://127.0.0.1:8545 -i -H 'Content-Type:application/json' -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{"from":"0xe1a9f573fe051a58909ca9142ca325f94502a5c2","to":"0x8f565f54d87b09edfe7962d70cc0723d966f52e0","data":"0x224ab9ed00000000000000000000000000000000000000000000000000000004a817c800"}],"id":12}' 
 
-   
-
+ 
 
      
 主要的函数：
